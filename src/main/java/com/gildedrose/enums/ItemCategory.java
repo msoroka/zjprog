@@ -4,6 +4,6 @@ public enum ItemCategory {
     Standard,
     AgedBrie,
     Sulfuras,
-    BackstagePasses,
+    BackstagePass,
     Conjured
 }

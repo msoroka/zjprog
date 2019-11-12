@@ -22,5 +22,20 @@ public class ItemTest {
         assertEquals(QUALITY, item.getQuality());
         assertEquals(CATEGORY, item.getCategory());
         assertThat(item, instanceOf(Item.class));
+
+        String newName = "Foo 1";
+        int newSellIn = 15;
+        int newQuality = 25;
+        ItemCategory newCategory = ItemCategory.Sulfuras;
+
+        item.setName(newName);
+        item.setSellIn(newSellIn);
+        item.setQuality(newQuality);
+        item.setCategory(newCategory);
+
+        assertEquals(newName, item.getName());
+        assertEquals(newSellIn, item.getSellIn());
+        assertEquals(newQuality, item.getQuality());
+        assertEquals(newCategory, item.getCategory());
     }
 }

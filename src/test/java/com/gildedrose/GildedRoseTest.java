@@ -8,6 +8,7 @@ import org.junit.Test;
 import java.util.Map;
 
 import static org.hamcrest.CoreMatchers.instanceOf;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 
 public class GildedRoseTest {
@@ -47,5 +48,25 @@ public class GildedRoseTest {
         assertThat(itemStrategyMap.get(this.items[2].getCategory()), instanceOf(AgedBrieItemStrategy.class));
         assertThat(itemStrategyMap.get(this.items[3].getCategory()), instanceOf(BackstagePassItemStrategy.class));
         assertThat(itemStrategyMap.get(this.items[4].getCategory()), instanceOf(ConjuredItemStrategy.class));
+    }
+
+    @Test
+    public void checkResults() {
+        app.updateQuality();
+
+        assertEquals(SELL_IN - 1, this.items[0].getSellIn());
+        assertEquals(QUALITY - 1, this.items[0].getQuality());
+
+        assertEquals(SELL_IN, this.items[1].getSellIn());
+        assertEquals(QUALITY, this.items[1].getQuality());
+
+        assertEquals(SELL_IN - 1, this.items[2].getSellIn());
+        assertEquals(QUALITY + 1, this.items[2].getQuality());
+
+        assertEquals(SELL_IN - 1, this.items[3].getSellIn());
+        assertEquals(QUALITY + 2, this.items[3].getQuality());
+
+        assertEquals(SELL_IN - 1, this.items[4].getSellIn());
+        assertEquals(QUALITY - 2, this.items[4].getQuality());
     }
 }

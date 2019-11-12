@@ -2,10 +2,7 @@ package com.gildedrose;
 
 import com.gildedrose.enums.ItemCategory;
 import com.gildedrose.interfaces.ItemStrategy;
-import com.gildedrose.strategies.AgedBrieItemStrategy;
-import com.gildedrose.strategies.BackstagePassItemStrategy;
-import com.gildedrose.strategies.StandardItemStrategy;
-import com.gildedrose.strategies.SulfurasItemStrategy;
+import com.gildedrose.strategies.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -36,6 +33,7 @@ public class GildedRose {
         itemStrategyMap.put(ItemCategory.Sulfuras, new SulfurasItemStrategy());
         itemStrategyMap.put(ItemCategory.AgedBrie, new AgedBrieItemStrategy());
         itemStrategyMap.put(ItemCategory.BackstagePass, new BackstagePassItemStrategy());
+        itemStrategyMap.put(ItemCategory.Conjured, new ConjuredItemStrategy());
     }
 
     public GildedRose(Item[] items) {

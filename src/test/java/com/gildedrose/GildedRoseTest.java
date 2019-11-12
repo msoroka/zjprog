@@ -2,10 +2,7 @@ package com.gildedrose;
 
 import com.gildedrose.enums.ItemCategory;
 import com.gildedrose.interfaces.ItemStrategy;
-import com.gildedrose.strategies.AgedBrieItemStrategy;
-import com.gildedrose.strategies.BackstagePassItemStrategy;
-import com.gildedrose.strategies.StandardItemStrategy;
-import com.gildedrose.strategies.SulfurasItemStrategy;
+import com.gildedrose.strategies.*;
 import org.junit.Test;
 
 import java.util.Map;
@@ -22,7 +19,8 @@ public class GildedRoseTest {
             new Item(NAME, SELL_IN, QUALITY, ItemCategory.Standard),
             new Item(NAME, SELL_IN, QUALITY, ItemCategory.Sulfuras),
             new Item(NAME, SELL_IN, QUALITY, ItemCategory.AgedBrie),
-            new Item(NAME, SELL_IN, QUALITY, ItemCategory.BackstagePass)
+            new Item(NAME, SELL_IN, QUALITY, ItemCategory.BackstagePass),
+            new Item(NAME, SELL_IN, QUALITY, ItemCategory.Conjured)
     };
     private GildedRose app = new GildedRose(items);
 
@@ -37,6 +35,7 @@ public class GildedRoseTest {
         assertThat(this.items[1], instanceOf(Item.class));
         assertThat(this.items[2], instanceOf(Item.class));
         assertThat(this.items[3], instanceOf(Item.class));
+        assertThat(this.items[4], instanceOf(Item.class));
     }
 
     @Test
@@ -47,5 +46,6 @@ public class GildedRoseTest {
         assertThat(itemStrategyMap.get(this.items[1].getCategory()), instanceOf(SulfurasItemStrategy.class));
         assertThat(itemStrategyMap.get(this.items[2].getCategory()), instanceOf(AgedBrieItemStrategy.class));
         assertThat(itemStrategyMap.get(this.items[3].getCategory()), instanceOf(BackstagePassItemStrategy.class));
+        assertThat(itemStrategyMap.get(this.items[4].getCategory()), instanceOf(ConjuredItemStrategy.class));
     }
 }
